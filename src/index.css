@@ -1,0 +1,312 @@
+@import "tailwindcss";
+
+/* ─── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-accent: #ff3d5a;
+  --clr-text: #fff;
+  --clr-muted: rgba(255,255,255,0.75);
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #0a0a0a;
+  color: var(--clr-text);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ─── App Shell ─────────────────────────────────────────────── */
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Navbar ────────────────────────────────────────────────── */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  gap: 2rem;
+}
+
+.navbar__logo img {
+  height: 36px;
+  width: auto;
+  filter: invert(1);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.navbar__links a {
+  color: var(--clr-text);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.navbar__links a:hover,
+.navbar__links a.active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.navbar__actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--clr-text);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.icon-btn:hover { opacity: 1; }
+
+/* ─── Hero ──────────────────────────────────────────────────── */
+.hero {
+  flex: 1;
+  position: relative;
+}
+
+.hero__slide {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Shoe ──────────────────────────────────────────────────── */
+.hero__shoe-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero__shoe {
+  width: clamp(340px, 90vw, 850px);
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.35));
+  transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg);
+}
+
+@keyframes float {
+  0%, 100% { transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg) translateY(0); }
+  50%       { transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg) translateY(-14px); }
+}
+
+.app--dark .hero__cta,
+.app--light .hero__cta {
+  color: inherit;
+}
+
+.app--dark .hero__cta::after {
+  background: #000;
+}
+
+.app--light .hero__cta::after {
+  background: #fff;
+}
+
+.app--dark .navbar,
+.app--dark .hero__info,
+.app--dark .icon-btn,
+.app--dark .slider-btn,
+.app--dark .hero__cta {
+  color: #000;
+}
+
+.app--dark .navbar__links a {
+  color: #000;
+}
+
+.app--light .navbar,
+.app--light .hero__info,
+.app--light .icon-btn,
+.app--light .slider-btn,
+.app--light .hero__cta {
+  color: #fff;
+}
+
+.app--light .navbar__links a {
+  color: #fff;
+}
+
+/* ─── Title ─────────────────────────────────────────────────── */
+.hero__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 10vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+
+  /* outline / mix-blend style to show shoe through text */
+  color: #fff;
+  /* -webkit-text-stroke: 2px rgba(255,255,255,0.9); */
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.navbar__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.navbar__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.navbar__dot--active {
+  background: currentColor;
+  opacity: 1;
+}
+
+.hero__title--solid {
+  z-index: 2;
+  color: #fff;
+  mix-blend-mode: normal;
+}
+
+.hero__title--outline {
+  z-index: 4;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  mix-blend-mode: normal;
+}
+/* ─── Bottom Info ───────────────────────────────────────────── */
+.hero__info {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.hero__price {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.hero__description {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--clr-muted);
+  max-width: 450px;
+  font-weight: 500;
+}
+
+.hero__cta {
+  background: none;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clr-text);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.hero__cta::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--clr-text);
+  transform: scaleX(1);
+  transition: transform 0.25s;
+  transform-origin: left;
+}
+
+.hero__cta:hover { color: var(--clr-accent); }
+.hero__cta:hover::after {
+  background: var(--clr-accent);
+}
+
+/* ─── Slider Buttons ────────────────────────────────────────── */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.55);
+  font-size: 8rem;
+  font-family: var(--font-display);
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 1rem;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.slider-btn:hover { color: #fff; }
+.slider-btn--prev { left: 0.5rem; }
+.slider-btn--next { right: 0.5rem; }
+
