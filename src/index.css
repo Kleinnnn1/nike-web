@@ -423,3 +423,8 @@ body {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+}

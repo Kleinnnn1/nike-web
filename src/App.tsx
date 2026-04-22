@@ -12,6 +12,16 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key === "a") {
+        e.preventDefault();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  useEffect(() => {
     const urls = slides.flatMap((s) => [s.backgroundImage, s.shoeImage]);
     let loadedCount = 0;
 
