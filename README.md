@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# Shoe Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern shoe showcase web application featuring an interactive hero slider for displaying premium Nike shoes with smooth animations and intuitive navigation controls.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Nike Shoe App is a responsive web application built with React and TypeScript that showcases a curated collection of Nike shoes. The application features an animated carousel slider that allows users to browse through different shoe products with detailed information including title, price, and descriptions.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19.2.5 - UI library
+- TypeScript 6.0 - Type-safe JavaScript
+- Vite 8.0 - Fast build tool and development server
+- Tailwind CSS 4.2 - Utility-first CSS framework
+- ESLint - Code quality and style checking
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+shoe-web/
+├── src/
+│   ├── components/
+│   │   ├── HeroSlide.tsx - Individual slide component for displaying shoe details
+│   │   ├── Navbar.tsx - Navigation bar component
+│   │   └── SlideControls.tsx - Navigation controls (previous/next buttons)
+│   ├── data/
+│   │   └── slides.ts - Shoe data and slide configurations
+│   ├── assets/
+│   │   └── images/ - Image assets for shoes and backgrounds
+│   ├── App.tsx - Main application component with slider logic
+│   ├── main.tsx - Entry point
+│   └── index.css - Global styles
+├── public/ - Static public assets
+├── package.json - Project dependencies and scripts
+├── vite.config.ts - Vite configuration
+├── tsconfig.json - TypeScript configuration
+├── eslint.config.js - ESLint rules
+└── README.md - This file
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Animated hero slider with smooth transitions
+- Multiple shoe products with detailed information
+- Previous and next navigation controls
+- Responsive design using Tailwind CSS
+- Type-safe code with TypeScript
+- Fast development experience with Vite HMR
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Current Products
+
+The application showcases three premium Nike shoe models:
+
+1. NIKE Adapt BB 2.0 - Advanced basketball shoe with improved FitAdapt lacing
+2. NIKE ADAPT BB - Self-lacing basketball shoe with app-controlled adjustments
+3. NIKE EQT SUPPORT - Retro-inspired sneaker with modern comfort
+
+## Installation
+
+1. Clone the repository
+2. Install dependencies: npm install
+3. Start the development server: npm run dev
+4. Build for production: npm run build
+5. Preview production build: npm run preview
+6. Lint code: npm run lint
+
+## Development
+
+The development server runs with Hot Module Replacement (HMR) for instant code updates during development. TypeScript provides type safety throughout the application, and ESLint ensures consistent code quality.
+
+## Build
+
+To create an optimized production build, run npm run build. The build output will be in the dist directory.

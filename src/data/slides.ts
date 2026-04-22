@@ -13,38 +13,34 @@ export interface Slide {
   description: string;
   shoeImage: string;
   backgroundImage: string;
-  theme: "light" | "dark";
 }
 
 export const slides: Slide[] = [
   {
     id: 1,
-    title: "FUTURECRAFT 4D",
-    price: "$980",
+    title: "NIKE Adapt BB 2.0",
+    price: "$850",
     description:
-      "Shop the Adidas Futurecraft 4D — a limited-edition performance sneaker crafted with 3D-printed midsole technology for unmatched cushioning, precision fit, and next-generation style.",
-    shoeImage: shoe1,
-    backgroundImage: bg1,
-    theme: "dark",
+      "Upgrade your game with the Nike Adapt BB 2.0 — an advanced evolution of the original, featuring improved FitAdapt lacing, enhanced court feel, and a redesigned upper for better stability and performance.",
+    shoeImage: shoe3,
+    backgroundImage: bg3,
   },
   {
     id: 2,
     title: "NIKE ADAPT BB",
     price: "$1,200",
     description:
-      "Buy the Nike Adapt BB — the self-lacing basketball shoe featuring FitAdapt power lace technology, real-time fit adjustments via app, and a responsive cushioning system built for elite performance.",
+      "Experience the Nike Adapt BB — a futuristic self-lacing basketball shoe powered by FitAdapt technology, delivering a personalized fit, app-controlled adjustments, and responsive cushioning for peak performance.",
     shoeImage: shoe2,
     backgroundImage: bg2,
-    theme: "light",
   },
   {
     id: 3,
-    title: "LI-NING ESSENCE",
-    price: "$850",
+    title: "NIKE EQT SUPPORT",
+    price: "$980",
     description:
-      "Discover the Li-Ning Essence — a premium lifestyle sneaker blending cutting-edge Chinese sportswear design with CloudFoam cushioning, offering bold aesthetics and all-day comfort.",
-    shoeImage: shoe3,
-    backgroundImage: bg3,
-    theme: "dark",
+      "Step into the Nike EQT Support — a retro-inspired sneaker combining modern comfort with classic running DNA, featuring responsive cushioning and a sleek, street-ready design.",
+    shoeImage: shoe1,
+    backgroundImage: bg1,
   },
 ];

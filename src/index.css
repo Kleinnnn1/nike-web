@@ -123,7 +123,7 @@ body {
 }
 
 .hero__shoe {
-  width: clamp(340px, 90vw, 850px);
+  width: clamp(300px, 70vw, 750px);
   filter: drop-shadow(0 20px 60px rgba(0,0,0,0.35));
   transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg);
 }
@@ -310,3 +310,93 @@ body {
 .slider-btn--prev { left: 0.5rem; }
 .slider-btn--next { right: 0.5rem; }
 
+/* ─── Slide Transitions ─────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+}
+
+/* BG layer fills the slide */
+.hero__layer--bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Outgoing: whole slide exits as one unit instantly */
+.layer-exit-to-left {
+  animation: exitToLeft 0.45s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  z-index: 1;
+}
+.layer-exit-to-right {
+  animation: exitToRight 0.45s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+  z-index: 1;
+}
+
+/* Incoming layers each animate in with staggered delays via inline style */
+.layer-enter-from-right {
+  animation: enterFromRight 0.7s cubic-bezier(0.77, 0, 0.18, 1) both;
+  z-index: 2;
+}
+.layer-enter-from-left {
+  animation: enterFromLeft 0.7s cubic-bezier(0.77, 0, 0.18, 1) both;
+  z-index: 2;
+}
+
+@keyframes enterFromRight {
+  from { transform: translateX(60px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes enterFromLeft {
+  from { transform: translateX(-60px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+@keyframes exitToLeft {
+  from { transform: translateX(0);    opacity: 1; }
+  to   { transform: translateX(-60px); opacity: 0; }
+}
+@keyframes exitToRight {
+  from { transform: translateX(0);   opacity: 1; }
+  to   { transform: translateX(60px); opacity: 0; }
+}
+
+@keyframes enterFromRightBg {
+  from { transform: scale(1.08) translateX(60px); opacity: 1; }
+  to   { transform: scale(1.08) translateX(0);    opacity: 1; }
+}
+@keyframes enterFromLeftBg {
+  from { transform: scale(1.08) translateX(-60px); opacity: 1; }
+  to   { transform: scale(1.08) translateX(0);     opacity: 1; }
+}
+@keyframes exitToLeftBg {
+  from { transform: scale(1.08) translateX(0);     opacity: 1; }
+  to   { transform: scale(1.08) translateX(-60px); opacity: 1; }
+}
+@keyframes exitToRightBg {
+  from { transform: scale(1.08) translateX(0);    opacity: 1; }
+  to   { transform: scale(1.08) translateX(60px); opacity: 1; }
+}
+
+.layer-enter-from-right-bg {
+  animation: enterFromRightBg 0.7s cubic-bezier(0.77, 0, 0.18, 1) both;
+}
+.layer-enter-from-left-bg {
+  animation: enterFromLeftBg 0.7s cubic-bezier(0.77, 0, 0.18, 1) both;
+}
+.layer-exit-to-left-bg {
+  animation: exitToLeftBg 0.45s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+.layer-exit-to-right-bg {
+  animation: exitToRightBg 0.45s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.hero__description {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+}
