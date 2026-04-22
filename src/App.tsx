@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeroSlide from "./components/HeroSlide";
 import { slides } from "./data/slides";
 import "./index.css";
@@ -9,6 +9,23 @@ export default function App() {
   const [next, setNext] = useState<number | null>(null);
   const [direction, setDirection] = useState<"next" | "prev">("next");
   const [animating, setAnimating] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const urls = slides.flatMap((s) => [s.backgroundImage, s.shoeImage]);
+    let loadedCount = 0;
+
+    urls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === urls.length) {
+          setLoaded(true);
+        }
+      };
+    });
+  }, []);
 
   const goTo = (index: number) => {
     if (animating || index === current) return;
@@ -25,6 +42,14 @@ export default function App() {
 
   const prev = () => goTo((current - 1 + slides.length) % slides.length);
   const nextSlide = () => goTo((current + 1) % slides.length);
+
+  if (!loaded) {
+    return (
+      <div className="loading-screen">
+        <div className="loading-spinner" />
+      </div>
+    );
+  }
 
   return (
     <div className="app">
