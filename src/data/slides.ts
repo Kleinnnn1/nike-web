@@ -1,10 +1,12 @@
 import shoe1 from "../assets/images/shoe-1.png";
 import shoe2 from "../assets/images/shoe-2.png";
 import shoe3 from "../assets/images/shoe-3.png";
+import shoe4 from "../assets/images/shoe-4.png";
 
 import bg1 from "../assets/images/bg-1.png";
 import bg2 from "../assets/images/bg-2.png";
 import bg3 from "../assets/images/bg-3.png";
+import bg4 from "../assets/images/bg-4.png";
 
 export interface Slide {
   id: number;
@@ -27,6 +29,15 @@ export const slides: Slide[] = [
   },
   {
     id: 2,
+    title: "Zoom Vapor Cage 4",
+    price: "$1,050",
+    description:
+      "Dominate the court with the Nike Zoom Vapor Cage 4 — engineered for aggressive movement, featuring durable sidewall support, responsive Zoom Air cushioning, and enhanced traction built for high-intensity tennis performance.",
+    shoeImage: shoe4,
+    backgroundImage: bg4,
+  },
+  {
+    id: 3,
     title: "NIKE ADAPT BB",
     price: "$1,200",
     description:
@@ -35,7 +46,7 @@ export const slides: Slide[] = [
     backgroundImage: bg2,
   },
   {
-    id: 3,
+    id: 4,
     title: "NIKE EQT SUPPORT",
     price: "$980",
     description:
