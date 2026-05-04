@@ -3,6 +3,7 @@ import HeroSlide from "./components/HeroSlide";
 import { slides } from "./data/slides";
 import "./index.css";
 import SliderControls from "./components/SlideControls";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [current, setCurrent] = useState(0);
@@ -80,6 +81,7 @@ export default function App() {
         />
         <SliderControls onPrev={prev} onNext={nextSlide} />
       </main>
+      <Footer />
     </div>
   );
 }

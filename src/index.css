@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
 /* ─── Reset & Base ─────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --clr-accent: #ff3d5a;
   --clr-text: #fff;
-  --clr-muted: rgba(255,255,255,0.75);
-  --font-display: 'Barlow Condensed', sans-serif;
-  --font-body: 'Barlow', sans-serif;
+  --clr-muted: rgba(255, 255, 255, 0.75);
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Barlow", sans-serif;
 }
 
 body {
@@ -92,7 +98,9 @@ body {
   transition: opacity 0.2s;
 }
 
-.icon-btn:hover { opacity: 1; }
+.icon-btn:hover {
+  opacity: 1;
+}
 
 /* ─── Hero ──────────────────────────────────────────────────── */
 .hero {
@@ -124,13 +132,20 @@ body {
 
 .hero__shoe {
   width: clamp(300px, 70vw, 750px);
-  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.35));
   transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg);
 }
 
 @keyframes float {
-  0%, 100% { transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg) translateY(0); }
-  50%       { transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg) translateY(-14px); }
+  0%,
+  100% {
+    transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg)
+      translateY(0);
+  }
+  50% {
+    transform: rotate(-5deg) translateX(4%) perspective(800px) rotateY(-15deg)
+      translateY(-14px);
+  }
 }
 
 .app--dark .hero__cta,
@@ -206,7 +221,9 @@ body {
   border: 2px solid currentColor;
   opacity: 0.5;
   cursor: pointer;
-  transition: opacity 0.2s, background 0.2s;
+  transition:
+    opacity 0.2s,
+    background 0.2s;
 }
 
 .navbar__dot--active {
@@ -283,7 +300,9 @@ body {
   transform-origin: left;
 }
 
-.hero__cta:hover { color: var(--clr-accent); }
+.hero__cta:hover {
+  color: var(--clr-accent);
+}
 .hero__cta:hover::after {
   background: var(--clr-accent);
 }
@@ -296,7 +315,7 @@ body {
   z-index: 10;
   background: none;
   border: none;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
   font-size: 8rem;
   font-family: var(--font-display);
   line-height: 1;
@@ -306,9 +325,15 @@ body {
   user-select: none;
 }
 
-.slider-btn:hover { color: #fff; }
-.slider-btn--prev { left: 0.5rem; }
-.slider-btn--next { right: 0.5rem; }
+.slider-btn:hover {
+  color: #fff;
+}
+.slider-btn--prev {
+  left: 0.5rem;
+}
+.slider-btn--next {
+  right: 0.5rem;
+}
 
 /* ─── Slide Transitions ─────────────────────────────────────── */
 .hero {
@@ -351,37 +376,85 @@ body {
 }
 
 @keyframes enterFromRight {
-  from { transform: translateX(60px); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 @keyframes enterFromLeft {
-  from { transform: translateX(-60px); opacity: 0; }
-  to   { transform: translateX(0);     opacity: 1; }
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 @keyframes exitToLeft {
-  from { transform: translateX(0);    opacity: 1; }
-  to   { transform: translateX(-60px); opacity: 0; }
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
 }
 @keyframes exitToRight {
-  from { transform: translateX(0);   opacity: 1; }
-  to   { transform: translateX(60px); opacity: 0; }
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(60px);
+    opacity: 0;
+  }
 }
 
 @keyframes enterFromRightBg {
-  from { transform: scale(1.08) translateX(60px); opacity: 1; }
-  to   { transform: scale(1.08) translateX(0);    opacity: 1; }
+  from {
+    transform: scale(1.08) translateX(60px);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.08) translateX(0);
+    opacity: 1;
+  }
 }
 @keyframes enterFromLeftBg {
-  from { transform: scale(1.08) translateX(-60px); opacity: 1; }
-  to   { transform: scale(1.08) translateX(0);     opacity: 1; }
+  from {
+    transform: scale(1.08) translateX(-60px);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.08) translateX(0);
+    opacity: 1;
+  }
 }
 @keyframes exitToLeftBg {
-  from { transform: scale(1.08) translateX(0);     opacity: 1; }
-  to   { transform: scale(1.08) translateX(-60px); opacity: 1; }
+  from {
+    transform: scale(1.08) translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.08) translateX(-60px);
+    opacity: 1;
+  }
 }
 @keyframes exitToRightBg {
-  from { transform: scale(1.08) translateX(0);    opacity: 1; }
-  to   { transform: scale(1.08) translateX(60px); opacity: 1; }
+  from {
+    transform: scale(1.08) translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.08) translateX(60px);
+    opacity: 1;
+  }
 }
 
 .layer-enter-from-right-bg {
@@ -421,10 +494,36 @@ body {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 body {
   user-select: none;
   -webkit-user-select: none;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1.25rem 2.5rem;
+  z-index: 20;
+
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+  backdrop-filter: blur(6px);
 }
