@@ -4,7 +4,6 @@ import { slides } from "./data/slides";
 import "./index.css";
 import Navbar from "./components/Navbar";
 import SliderControls from "./components/SlideControls";
-import Footer from "./components/Footer";
 
 export const TRANSITION_MS = 2700;
 const AUTOPLAY_MS = 6000;
