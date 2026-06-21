@@ -1,12 +1,12 @@
-import shoe1 from "../assets/images/shoe-1.png";
-import shoe2 from "../assets/images/shoe-2.png";
-import shoe3 from "../assets/images/shoe-3.png";
-import shoe4 from "../assets/images/shoe-4.png";
+import shoe1 from "../assets/images/shoe-1.webp";
+import shoe2 from "../assets/images/shoe-2.webp";
+import shoe3 from "../assets/images/shoe-3.webp";
+import shoe4 from "../assets/images/shoe-4.webp";
 
-import bg1 from "../assets/images/bg-1.png";
-import bg2 from "../assets/images/bg-2.png";
-import bg3 from "../assets/images/bg-3.png";
-import bg4 from "../assets/images/bg-4.png";
+import bg1 from "../assets/images/bg-1.webp";
+import bg2 from "../assets/images/bg-2.webp";
+import bg3 from "../assets/images/bg-3.webp";
+import bg4 from "../assets/images/bg-4.webp";
 
 export interface Slide {
   id: number;

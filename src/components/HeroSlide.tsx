@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { TRANSITION_MS } from "../App";
 
 interface HeroSlideProps {
   title: string;
@@ -26,7 +27,7 @@ export default function HeroSlide({
 
   useEffect(() => {
     if (isInitial) {
-      const t = setTimeout(() => setIsInitial(false), 2700);
+      const t = setTimeout(() => setIsInitial(false), TRANSITION_MS);
       return () => clearTimeout(t);
     }
   }, []);
@@ -48,10 +49,10 @@ export default function HeroSlide({
   const bgAnimClass = isInitial
     ? ""
     : animating
-    ? role === "incoming"
-      ? `layer-enter-from-${from}-bg`
-      : `layer-exit-to-${to}-bg`
-    : "";
+      ? role === "incoming"
+        ? `layer-enter-from-${from}-bg`
+        : `layer-exit-to-${to}-bg`
+      : "";
 
   return (
     <div
@@ -59,7 +60,6 @@ export default function HeroSlide({
         role === "outgoing" ? `layer-exit-to-${to}` : ""
       }`}
     >
-
       <div
         className={`hero__layer hero__layer--bg ${bgAnimClass}`}
         style={{

@@ -1,4 +1,3 @@
-import infinityLogo from "../assets/images/infi-logo.png";
 import { slides } from "../data/slides";
 
 interface NavbarProps {
@@ -10,12 +9,15 @@ export default function Navbar({ currentIndex, onDotClick }: NavbarProps) {
   return (
     <nav className="navbar">
       <div className="navbar__logo">
-        <img src={infinityLogo} alt="Logo" />
       </div>
-      <div className="navbar__dots">
-        {slides.map((_, i) => (
-          <span
-            key={i}
+      <div className="navbar__dots" role="tablist" aria-label="Slides">
+        {slides.map((slide, i) => (
+          <button
+            key={slide.id}
+            type="button"
+            role="tab"
+            aria-selected={i === currentIndex}
+            aria-label={`Go to slide ${i + 1}: ${slide.title}`}
             className={`navbar__dot ${i === currentIndex ? "navbar__dot--active" : ""}`}
             onClick={() => onDotClick(i)}
           />
