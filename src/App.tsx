@@ -4,6 +4,7 @@ import { slides } from "./data/slides";
 import "./index.css";
 import Navbar from "./components/Navbar";
 import SliderControls from "./components/SlideControls";
+import nikeLogo from "./assets/logo.png";
 
 export const TRANSITION_MS = 2700;
 const AUTOPLAY_MS = 6000;
@@ -15,20 +16,30 @@ export default function App() {
   const [animating, setAnimating] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const urls = slides.flatMap((s) => [s.backgroundImage, s.shoeImage]);
     let loadedCount = 0;
 
+    // Images only ever push progress up to 95% — the final 5% is reserved
+    // for the "everything's actually ready" jump to 100 right before reveal.
+    const bump = () => {
+      loadedCount++;
+      const pct = Math.min(95, Math.round((loadedCount / urls.length) * 95));
+      setProgress((prev) => Math.max(prev, pct));
+
+      if (loadedCount === urls.length) {
+        setProgress(100);
+        // brief pause so the 100% state is visible before the app appears
+        setTimeout(() => setLoaded(true), 350);
+      }
+    };
+
     urls.forEach((url) => {
       const img = new Image();
       img.src = url;
-      img.onload = img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === urls.length) {
-          setLoaded(true);
-        }
-      };
+      img.onload = img.onerror = bump;
     });
   }, []);
 
@@ -74,7 +85,14 @@ export default function App() {
   if (!loaded) {
     return (
       <div className="loading-screen">
-        <div className="loading-spinner" />
+        <img src={nikeLogo} alt="Nike" className="loading-logo" />
+        <div className="loading-bar">
+          <div
+            className="loading-bar__fill"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <span className="loading-percent">{progress}%</span>
       </div>
     );
   }
